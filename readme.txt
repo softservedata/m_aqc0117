@@ -13,7 +13,7 @@
 13 Where there is no grass at all;
 14
 15
-16
+16 Is as white as white can be
 17
 18
 19
