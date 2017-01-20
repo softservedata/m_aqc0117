@@ -15,7 +15,7 @@
 15
 16 Is as white as white can be.
 17
-18
+18 Pointing out the way we came,
 19
 20
 21
