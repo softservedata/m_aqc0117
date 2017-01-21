@@ -10,8 +10,8 @@
 ## Verse hometask
 11 In the winter time we go
 12 Walking in the fields of snow;
-13 Where there is no grass at all; #some one has done my part of home task so I just added this comment :)
-14
+13 Where there is no grass at all;
+14 Where the top of every wall,
 15
 16 Is as white as white can be.
 17
