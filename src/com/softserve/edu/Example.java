@@ -18,8 +18,8 @@ public class Example { // inherited class Object
             example.setNumber(1);
             example2.setNumber(2);
             //
-            example.hello("My first program");
-            example2.hello("My first program");
+            example.hello("My first program.");
+            example2.hello("My first program:");
         }
 
     }
