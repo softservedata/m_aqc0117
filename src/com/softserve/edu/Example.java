@@ -1,3 +1,5 @@
+package com.softserve.edu;
+
 public class Example { // inherited class Object
    private int number;
 
