@@ -1,5 +1,4 @@
 package com.softserve.edu.hw2;
-import java.lang.Math;
 
 public class Square implements Figure {
 	public Square(Double radius) {

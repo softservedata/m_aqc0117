@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Appl {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ArrayList<Figure> figureArray = new ArrayList<>();
 		figureArray.add(new Rectangle(4.0,5.0));
 		figureArray.add(new Rectangle(7.0,6.0));
