@@ -9,8 +9,8 @@ public class Appl {
 		return array;
 	}
 
-	public int average() {
-		int sum = 0;
+	public double average() {
+		double sum = 0;
 		for (int i = 0; i < arrayint().length; i++) {
 			sum = sum + arrayint()[i];
 		}
@@ -31,7 +31,7 @@ public class Appl {
 		Appl x = new Appl();
 		System.out.println("Array contains: " + Arrays.toString(x.arrayint()));
 		System.out.println("Average amount of array: " + x.average());
-		System.out.println("Amount of numbers which are bigger than average amount of array: " + x.amount());
+		System.out.println("Count of numbers which are bigger than average amount of array: " + x.amount());
 	}
 
 }
