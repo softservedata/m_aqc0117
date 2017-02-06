@@ -20,7 +20,7 @@ public class Appl {
 	}
 
 	public double getAvg(int[] data) {
-		//int result = 0; // ERROR
+		// int result = 0; // ERROR
 		double result = 0;
 		for (int i = 0; i < data.length; i++) {
 			result = result + data[i];
@@ -28,14 +28,27 @@ public class Appl {
 		return result / data.length;
 	}
 
-	public double getCount(int[] data, double avg) {
+	public int getCount(int[] data, double avg) {
 		int count = 0;
 		for (int element : data) {
 			if (element > avg) {
 				count = count + 1;
+				// System.out.print(element + " "); // Spagetti Code
 			}
 		}
 		return count;
+	}
+
+	public int[] getElements(int[] data, double avg) {
+		int[] result = new int[getCount(data, avg)];
+		int i = 0;
+		for (int element : data) {
+			if (element > avg) {
+				result[i] = element;
+				i = i + 1;
+			}
+		}
+		return result;
 	}
 
 	public static void main1(String[] args) {
@@ -55,10 +68,12 @@ public class Appl {
 		// System.out.println(appl.dataProvider().toString());
 		System.out.println(Arrays.toString(appl.dataProvider()));
 		System.out.println("avg=" + appl.getAvg(appl.dataProvider()));
+		System.out.println(Arrays.toString(appl.getElements(appl.dataProvider(),
+				appl.getAvg(appl.dataProvider()))));
 		// for (int element : appl.dataProvider()) {
 		// System.out.print(element + " ");
 		// }
-		System.out.println(appl.getCount(appl.dataProvider(),
+		System.out.println("\ncount=" + appl.getCount(appl.dataProvider(),
 				appl.getAvg(appl.dataProvider())));
 	}
 }
