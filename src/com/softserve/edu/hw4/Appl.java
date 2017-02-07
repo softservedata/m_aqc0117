@@ -1,10 +1,5 @@
 package com.softserve.edu.hw4;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
-
-
 public class Appl {
 	public static void main(String[] args) {
 
