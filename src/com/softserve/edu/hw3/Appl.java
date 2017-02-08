@@ -1,6 +1,8 @@
 package com.softserve.edu.hw3;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Appl {
 
@@ -9,7 +11,9 @@ public class Appl {
 	// }
 
 	private void dataProvider(int[] data) {
-		int data2[] = new int[] { 1, 1, 7, 8, 2, 1, 3, 2, 5, 1 };
+		Integer data2[] = new Integer[] { 1, 1, 7, 8, 2, 1, 3, 2, 5, 1 };
+		Set<Integer> d2 = new HashSet<>(Arrays.asList(data2));
+		System.out.println("d2=" + d2);
 		for (int i = 0; i < data.length; i++) {
 			data[i] = data2[i];
 		}
