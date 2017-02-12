@@ -1,4 +1,4 @@
-package com.softseve.edu.homework5;
+package com.softserve.edu.homework5;
 
 import java.util.regex.*;
 
@@ -13,7 +13,7 @@ public class WorkWithRegExp {
 		Pattern p = Pattern.compile(pattern);
 		Matcher m = p.matcher(text);
 		while (m.find()) {
-			System.out.print(text.substring(m.start(), m.end()) + "\n");
+			System.out.print(text.substring(m.start()+3, m.end()-4) + "\n");
 		}
 
 	}

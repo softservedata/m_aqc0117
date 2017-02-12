@@ -2,4 +2,4 @@
  * @author
  *
  */
-package com.softseve.edu.homework5;
+package com.softserve.edu.homework5;
