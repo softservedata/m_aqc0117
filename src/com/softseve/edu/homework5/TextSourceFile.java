@@ -2,7 +2,7 @@ package com.softseve.edu.homework5;
 
 public class TextSourceFile {
 
-	String text = new StringBuilder()
+	static String text = new StringBuilder()
 			.append("<!DOCTYPE html>")
 			.append("<html class=client-nojs lang=uk dir=ltr>")
 			.append("<head>")
