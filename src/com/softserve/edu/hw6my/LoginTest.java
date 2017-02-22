@@ -18,12 +18,21 @@ public class LoginTest {
 		WebDriver driver = new FirefoxDriver();
 		driver.get("http://regres.herokuapp.com/");
 		Thread.sleep(5000);
+		
+		//Test Steps
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.id("login")).sendKeys("work");
 		driver.findElement(By.id("password")).sendKeys("qwerty");
 		driver.findElement(By.cssSelector("button.btn")).click();
 		Thread.sleep(5000);
+		
+		//Check
 		Assert.assertEquals(driver.findElement(By.cssSelector("#header > div.col-md-5.col-xs-12.hcontrollers > div.col-md-7.col-xs-6.hprofile > div > button:nth-child(1)")).getText(), "work");
+		
+		// After Test
+		driver.findElement(By.cssSelector("button.btn.btn-primary.btn-sm.dropdown-toggle")).click();
+		driver.findElement(By.xpath("//a[contains(@href,'/logout')]")).click();
+		
 		Thread.sleep(5000);
 		driver.quit();
   }
