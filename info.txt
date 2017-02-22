@@ -41,3 +41,13 @@ Ctr+C for quit
 http://peter.sh/experiments/chromium-command-line-switches/
 
 http://phantomjs.org/download.html
+
+ExpectedConditions
+https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/ExpectedConditions.html
+
+WARNING: Do not mix implicit and explicit waits.
+http://www.seleniumhq.org/docs/04_webdriver_advanced.jsp#explicit-and-implicit-waits
+
+martin fowler refactoring
+Refactoring: Improving the Design of Existing Code
+https://www.csie.ntu.edu.tw/~r95004/Refactoring_improving_the_design_of_existing_code.pdf
