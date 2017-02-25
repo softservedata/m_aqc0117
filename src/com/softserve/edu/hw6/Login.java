@@ -14,30 +14,18 @@ public class Login {
 	@Test
 	public void testFF(){
 		WebDriver driver = new FirefoxProvider().setDriver();
-		openApp(driver);
-		testLocale(driver,"en");
-		testLocale(driver,"ru");
-		testLocale(driver,"uk");
-		driver.quit();
+		runLocaleTests(driver);
 	}
 	
 	@Test
 	public void testChrome(){
 		WebDriver driver = new ChromeProvider().setDriver();
-		openApp(driver);
-		testLocale(driver,"en");
-		testLocale(driver,"ru");
-		testLocale(driver,"uk");
-		driver.quit();
+		runLocaleTests(driver);
 	}
 	@Test
 	public void testPhantom(){
 		WebDriver driver = new PhantomProvider().setDriver();
-		openApp(driver);
-		testLocale(driver,"en");
-		testLocale(driver,"ru");
-		testLocale(driver,"uk");
-		driver.quit();
+		runLocaleTests(driver);
 	}
 	
 	public void testLogin(WebDriver driver) {
@@ -67,6 +55,14 @@ public class Login {
 			Assert.assertEquals(driver.findElement(By.xpath("//*[@class='container-fluid']/div[1]")).getText().replaceAll("\n", " "),localeProv.getTitle());
 			
 		}
+	}
+	
+	public void runLocaleTests(WebDriver driver){
+		openApp(driver);
+		testLocale(driver,"en");
+		testLocale(driver,"ru");
+		testLocale(driver,"uk");
+		driver.quit();
 	}
 	
 	public void openApp(WebDriver driver){
