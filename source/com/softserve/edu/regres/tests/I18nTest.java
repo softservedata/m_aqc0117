@@ -47,7 +47,8 @@ public class I18nTest {
 	public void beforeMethod() throws InterruptedException {
 		System.out.println("@BeforeMethod");
 		//driver.get("http://registrator.herokuapp.com/login");
-		driver.get("http://regres.herokuapp.com/login");
+		//driver.get("http://regres.herokuapp.com/login");
+		driver.get("http://java.training.local:8080/registrator/login");
 		Thread.sleep(1000);
 	}
 
@@ -66,7 +67,7 @@ public class I18nTest {
 			};
 	}
 
-	//@Test(dataProvider = "localization")
+	@Test(dataProvider = "localization")
 	public void checkLocalization(ChangeLanguageFields language) throws Exception {
 		// Precondition
 		// TODO Remove from test
@@ -97,11 +98,17 @@ public class I18nTest {
 		// MUST BE DELETE
 		Thread.sleep(2000);
 		//
+		// Check Register
+		//Assert.assertTrue(loginPage.isRegisterExist());
+		System.out.println("is Register Button Exist: "
+				+ loginPage.isRegisterExist());
+		// loginPage.clickRegister(); // ERROR
+		//
 		// Return to previous state
 		//driver.quit();
 	}
 
-	@Test(dataProvider = "localization")
+	//@Test(dataProvider = "localization")
 	public void checkLocalizationSoftAssert(ChangeLanguageFields language) throws Exception {
 		// Precondition
 		// TODO Remove from test

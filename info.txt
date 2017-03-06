@@ -76,3 +76,33 @@ Explicit	wait
 JavaScript
 
 - - -
+
+make	OS
+
+bat/Power Shell/Bash Script	OS
+
+Ant	XML
+
+Maven	XML	1, 2, 3		Declarative appro.
+
+Gradle	Groovy
+
+- - -
+
+Imperative
+ for (int i=0; i<10; i++) {   .....  }
+
+Declarative
+ Select * From Table Where ...
+- - -
+
+1. download depend.
+2. build pro.
+3. exec pro.
+
+- - -
+
+mvn plugin:goal -KEY=value -KEY2=value2
+mvn phase  -KEY=value -KEY2=value2
+
+mvn archetype:generate -DgroupId=com.softserve.edu.regres -DartifactId=m_aqc0117 -Dversion=1.0 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DinteractiveMode=false
