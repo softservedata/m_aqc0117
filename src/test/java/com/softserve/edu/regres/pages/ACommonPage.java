@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 public abstract class ACommonPage extends ATopPage {
 
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	private class UserAccount {
 
 		// Fields
@@ -39,7 +41,6 @@ public abstract class ACommonPage extends ATopPage {
 		public WebElement getLogoutElement() {
 			return this.logout;
 		}
-
 	}
 	
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -128,4 +129,6 @@ public abstract class ACommonPage extends ATopPage {
 		getLogout().click();
 	}
 
+	// Business Logic
+	
 }

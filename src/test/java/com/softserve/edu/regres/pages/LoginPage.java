@@ -30,8 +30,9 @@ public class LoginPage extends ATopPage {
 	private static final String REGISTER_BUTTON_CSSSELECTOR = "a.btn.btn-success";
 
 	public static enum LoginPageL10n {
-		LOGIN_LABEL("Логін", "Логин", "Login"), PASSWORD_LABEL("Пароль", "Пароль", "Password"), SUBMIT_BUTTON("Увійти",
-				"Войти", "Sign in");
+		LOGIN_LABEL("Р›РѕРіС–РЅ", "Р›РѕРіРёРЅ", "Login"),
+		PASSWORD_LABEL("РџР°СЂРѕР»СЊ", "РџР°СЂРѕР»СЊ", "Password"),
+		SUBMIT_BUTTON("РЈРІС–Р№С‚Рё", "Р’РѕР№С‚Рё", "Sign in");
 		//
 		private HashMap<ChangeLanguageFields, String> field;
 
