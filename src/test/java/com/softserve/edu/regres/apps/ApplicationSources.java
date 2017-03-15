@@ -23,6 +23,7 @@ public class ApplicationSources {
 	// private String loggerStrategy;
 	//
 	// URLs
+	//private String homeUrl;
 	private String loginUrl;
 	private String logoutUrl;
 	// private String serverUrl;

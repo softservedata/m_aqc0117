@@ -200,6 +200,11 @@ public class AdminHomePage extends ACommonPage {
 		return new AdminHomePage(driver);
 	}
 
+	public SettingsPage gotoSettingsPage() {
+		clickSettings();
+		return new SettingsPage(driver);
+	}
+	
 	public LoginPage logout() {
 		clickLogout();
 		// Return a new page object representing the destination.

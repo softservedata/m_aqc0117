@@ -31,7 +31,8 @@ public class I18nParallelTest {
 //		System.setProperty("webdriver.chrome.driver",
 //				this.getClass().getResource("/lib/chromedriver.exe").getPath().substring(1));
 		System.setProperty("webdriver.chrome.driver",
-				"./lib/chromedriver.exe");
+		//		"./lib/chromedriver.exe");
+				I18nParallelTest.class.getResource("/lib/chromedriver.exe").getPath().substring(1));
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-proxy-server");
 		//WebDriver driver = new ChromeDriver();

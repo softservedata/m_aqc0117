@@ -29,8 +29,11 @@ public class LoginTest {
 	public void checkAdminLogin( //ApplicationSources applicationSources,
 			IUser admin) throws Exception {
 		// Precondition
+		 System.out.println("+++++ PATH = "
+				 + LoginTest.class.getResource("/lib/chromedriver.exe").getPath());
 		System.setProperty("webdriver.chrome.driver",
-				"./lib/chromedriver.exe");
+		//		"./lib/chromedriver.exe");
+				LoginTest.class.getResource("/lib/chromedriver.exe").getPath().substring(1));
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-proxy-server");
 		//WebDriver driver = new ChromeDriver();

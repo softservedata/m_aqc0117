@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
@@ -12,15 +13,21 @@ import com.softserve.edu.regres.apps.ApplicationSourcesRepository;
 
 public class Application {
 
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	private interface IBrowser {
 		WebDriver getBrowser(Application application);
 	}
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 	private static class Firefox4701Temporary implements IBrowser {
 		public WebDriver getBrowser(Application application) {
 			return new FirefoxDriver();
 		}
 	}
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 	private static class Firefox50xxTemporary implements IBrowser {
 		public WebDriver getBrowser(Application application) {
@@ -32,6 +39,8 @@ public class Application {
 		}
 	}
 
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	private static class ChromeTemporary implements IBrowser {
 		public WebDriver getBrowser(Application application) {
 			System.setProperty("webdriver.chrome.driver",
@@ -39,6 +48,20 @@ public class Application {
 			return new ChromeDriver();
 		}
 	}
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	private static class ChromeOptionsTemporary implements IBrowser {
+		public WebDriver getBrowser(Application application) {
+			System.setProperty("webdriver.chrome.driver",
+					application.applicationSources.getDriverPath());
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-proxy-server");
+			return new ChromeDriver(options);
+		}
+	}
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 	private static class HtmlUnitTemporary implements IBrowser {
 		public WebDriver getBrowser(Application application) {
@@ -49,11 +72,14 @@ public class Application {
 		}
 	}
 	
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	public static enum Browsers {
 		DEFAULT_TEMPORARY("ChromeTemporary", new ChromeTemporary()),
-		FIREFOX4701_TEMPORARY("FireFox.47.0.1.Temporary", new Firefox4701Temporary()),
-		FIREFOX50XX_TEMPORARY("FireFox.50.x.x.Temporary", new Firefox50xxTemporary()),
+		FIREFOX4701_TEMPORARY("FireFox4701.Temporary", new Firefox4701Temporary()),
+		FIREFOX50XX_TEMPORARY("FireFox50xx.Temporary", new Firefox50xxTemporary()),
 		CHROME_TEMPORARY("ChromeTemporary", new ChromeTemporary()),
+		CHROME_OPTIONS_TEMPORARY("ChromeOptionsTemporary", new ChromeOptionsTemporary()),
 		HTMLUNIT_TEMPORARY("HtmlUnitTemporary", new HtmlUnitTemporary());
 		//
 		private String browserName;
@@ -74,6 +100,8 @@ public class Application {
 		}
 	}
 	
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 	// Use Singleton, Repository
 	private static volatile Application instance;
 	//
@@ -106,6 +134,7 @@ public class Application {
 		return instance;
 	}
 
+	// TODO Close All Threads
 	public static void remove() {
 		if (instance != null) {
 			instance.quit();
@@ -121,19 +150,25 @@ public class Application {
 	}
 
 	public LoginPage load() {
+		//logout();
+		getWebDriver().get(applicationSources.getLoginUrl());
+		return new LoginPage(driver);
+	}
+
+	public LoginPage login() {
 		logout();
-		driver.get(applicationSources.getLoginUrl());
+		getWebDriver().get(applicationSources.getLoginUrl());
 		return new LoginPage(driver);
 	}
 
 	public LoginPage logout() {
-		driver.get(applicationSources.getLogoutUrl());
+		getWebDriver().get(applicationSources.getLogoutUrl());
 		return new LoginPage(driver);
 	}
 
 	public void quit() {
-		if (driver != null) {
-			driver.quit();
+		if (getWebDriver() != null) {
+			getWebDriver().quit();
 		}
 	}
 
@@ -151,6 +186,8 @@ public class Application {
 			}
 		}
 		driver = currentBrowser.runBrowser(this);
+		//
+		// TODO Move to Strategy class
 		driver.manage().timeouts()
 			.implicitlyWait(applicationSources.getImplicitTimeOut(), TimeUnit.SECONDS);
 	}

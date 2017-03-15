@@ -29,7 +29,8 @@ public class I18nTest {
 //				//"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe"
 //				I18nTest.class.getResource("/lib/chromedriver.exe").getPath().substring(1));
 		System.setProperty("webdriver.chrome.driver",
-				"./lib/chromedriver.exe");
+		//		"./lib/chromedriver.exe");
+				I18nTest.class.getResource("/lib/chromedriver.exe").getPath().substring(1));
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-proxy-server");
 		//driver = new ChromeDriver();
