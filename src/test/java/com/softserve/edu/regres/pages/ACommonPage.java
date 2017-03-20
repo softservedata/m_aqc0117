@@ -1,6 +1,12 @@
 package com.softserve.edu.regres.pages;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -53,8 +59,20 @@ public abstract class ACommonPage extends ATopPage {
 
 	public ACommonPage(WebDriver driver) {
 		super(driver);
+		//
+//		System.out.println("\t+++Taking Screenshot ...");
+//        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//			FileUtils.copyFile(scrFile, new File("./screenshot1.png"));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+        //
 		this.loginAccount = driver.findElement(By.xpath("//button[@class='btn btn-primary btn-sm']"));
 		this.menuAccount = driver.findElement(By.cssSelector(".btn.btn-primary.btn-sm.dropdown-toggle"));
+		//
+		//System.out.println("loginAccount = " + loginAccount.getText());
 	}
 
 	// PageObject

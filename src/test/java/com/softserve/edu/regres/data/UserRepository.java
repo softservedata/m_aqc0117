@@ -1,5 +1,10 @@
 package com.softserve.edu.regres.data;
 
+import java.util.List;
+
+import com.softserve.edu.regres.tools.CSVUtils;
+import com.softserve.edu.regres.tools.ExcelUtils;
+
 public final class UserRepository {
 
 	// Use Singleton, Repository
@@ -63,15 +68,15 @@ public final class UserRepository {
 				.build();
 	}
 
-//	public static List<IUser> getNewUsersFromCsvFile() {
-//		return new UserUtils().getAllUsers();
-//	}
+	public List<IUser> getUsersFromCsvFile(String filename) {
+		return new UserUtils(filename, new CSVUtils()).getAllUsersFromFile();
+	}
 
-//	public static List<IUser> getNewUsersFromExcelFile() {
-//		return new UserUtils("/newUsers.xlsx", new ExcelUtils()).getAllUsers();
-//	}
+	public List<IUser> getUsersFromExcelFile(String filename) {
+		return new UserUtils(filename, new ExcelUtils()).getAllUsersFromFile();
+	}
 
-//	public static List<IUser> getNewUsersFromDB() {
+//	public List<IUser> getNewUsersFromDB() {
 //		return new UserUtils("/", new DBUtils()).getAllUsers();
 //	}
 

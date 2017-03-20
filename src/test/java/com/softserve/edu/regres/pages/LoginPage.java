@@ -230,11 +230,11 @@ public class LoginPage extends ATopPage {
 		// logger.debug("Done");
 	}
 
-	// public HomePage successUserLogin(IUser user) {
-	// setLoginData(user);
-	// // Return a new page object representing the destination.
-	// return new HomePage(driver);
-	// }
+	public CommonPage successUserLogin(IUser user) {
+		setLoginData(user);
+		// Return a new page object representing the destination.
+		return new CommonPage(driver);
+	}
 
 	public AdminHomePage successAdminLogin(IUser admin) {
 		// public AdminHomePage successAdminLogin(String login, String password)
