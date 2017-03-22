@@ -179,9 +179,14 @@ public class Application {
 	private void initWebDriver() {
 		Browsers currentBrowser = Browsers.DEFAULT_TEMPORARY;
 		for (Browsers browser : Browsers.values()) {
+			//System.out.println("***initWebDriver()  browser.toString().toLowerCase() "+browser.toString().toLowerCase());
+			//System.out.println("***initWebDriver() applicationSources.getBrowserName().toLowerCase() "+applicationSources.getBrowserName().toLowerCase());
+			//System.out.println("*** "+browser.toString().toLowerCase()
+			//		.contains(applicationSources.getBrowserName().toLowerCase()));
 			if (browser.toString().toLowerCase()
 					.contains(applicationSources.getBrowserName().toLowerCase())) {
 				currentBrowser = browser;
+				//System.out.println("***Update to "+applicationSources.getBrowserName().toLowerCase());
 				break;
 			}
 		}

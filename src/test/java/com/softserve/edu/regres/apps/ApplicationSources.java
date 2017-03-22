@@ -1,5 +1,7 @@
 package com.softserve.edu.regres.apps;
 
+import java.util.HashMap;
+
 public class ApplicationSources {
 
 	// Browser Data
@@ -62,4 +64,53 @@ public class ApplicationSources {
 		return logoutUrl;
 	}
 
+	// setters
+	
+	private void setBrowserName(String browserName) {
+		this.browserName = browserName;
+	}
+
+	private void setDriverPath(String driverPath) {
+		this.driverPath = driverPath;
+	}
+
+	private void setImplicitTimeOut(long implicitTimeOut) {
+		this.implicitTimeOut = implicitTimeOut;
+	}
+
+	private void setLoginUrl(String loginUrl) {
+		this.loginUrl = loginUrl;
+	}
+
+	private void setLogoutUrl(String logoutUrl) {
+		this.logoutUrl = logoutUrl;
+	}
+
+	// Business Logic
+
+	// TODO Use factory method 
+	public ApplicationSources update(HashMap<String, String> testParameters) {
+		if (testParameters != null) {
+	        for (String key : testParameters.keySet()) {
+	        	//System.out.println("+++ApplicationSources: Test parameter: key=" + key + " value=" + testParameters.get(key));
+	        	if (key.toLowerCase().contains("browsername")) {
+	        		setBrowserName(testParameters.get(key));
+	        		continue;
+	        	} else if (key.toLowerCase().contains("driverpath")) {
+	        		setDriverPath(testParameters.get(key));
+	        		continue;
+	        	}else if (key.toLowerCase().contains("timeout")) {
+	        		setImplicitTimeOut(new Long(testParameters.get(key)));
+	        		continue;
+	        	} else if (key.toLowerCase().contains("loginurl")) {
+	        		setLoginUrl(testParameters.get(key));
+	        		continue;
+	        	} else if (key.toLowerCase().contains("logouturl")) {
+	        		setLogoutUrl(testParameters.get(key));
+	        		continue;
+	        	}
+	        }
+		}
+		return this;
+	}
 }

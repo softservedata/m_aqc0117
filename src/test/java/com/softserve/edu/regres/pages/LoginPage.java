@@ -213,7 +213,6 @@ public class LoginPage extends ATopPage {
 		return new LoginPage(driver); // Do not use: return this; will be ERROR
 	}
 
-	// TODO Develop User class
 	private void setLoginData(IUser user) {
 		// private void setLoginData(String login, String password) {
 		// logger.debug("Start");
@@ -250,14 +249,12 @@ public class LoginPage extends ATopPage {
 	// // Return a new page object representing the destination.
 	// return new RegistratorHomePage();
 	// }
-	//
-	// TODO Develop User class
-	// public LoginValidatorPage unsuccessfulLogin(IUser invalidUser) {
-	// //public LoginValidatorPage unsuccessfulLogin(String login, String
-	// password) {
-	// setLoginData(invalidUser);
-	// //setLoginData(login, password);
-	// return new LoginValidatorPage(driver); // return this;
-	// }
+
+	 public LoginValidatorPage unsuccessfulLogin(IUser invalidUser) {
+	 //public LoginValidatorPage unsuccessfulLogin(String login, String password) {
+	 setLoginData(invalidUser);
+	 //setLoginData(login, password);
+	 return new LoginValidatorPage(driver); // return this; // Do not use return this
+	 }
 
 }

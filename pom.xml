@@ -16,6 +16,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<testng.reports.directory>./target/surefire-reports/test-output</testng.reports.directory>
 		<org.slf4j.version>1.7.21</org.slf4j.version>
+		<testng.xml.file>testng2.xml</testng.xml.file>
 	</properties>
 
 	<dependencies>
@@ -116,7 +117,7 @@
 						<surefire.reports.directory>${testng.reports.directory}</surefire.reports.directory>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng2.xml</suiteXmlFile>
+						<suiteXmlFile>${testng.xml.file}</suiteXmlFile>
 						<!-- <suiteXmlFile>testng3.xml</suiteXmlFile> -->
 					</suiteXmlFiles>
 					<reportsDirectory>${testng.reports.directory}</reportsDirectory>

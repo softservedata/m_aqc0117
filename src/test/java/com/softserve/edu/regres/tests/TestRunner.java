@@ -1,5 +1,8 @@
 package com.softserve.edu.regres.tests;
 
+import java.util.HashMap;
+
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -13,10 +16,22 @@ public class TestRunner {
 	//protected Application application;
 	
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass(ITestContext context) {
 		System.out.println("@BeforeClass");
+		//
+		// Get All Parameters
+		// context.getCurrentXmlTest().getAllParameters()
+		// Get Suite Parameters
+		//context.getCurrentXmlTest().getSuite().getParameters()
+		// Get Test Parameters
+		//context.getCurrentXmlTest().getTestParameters()
+        HashMap<String, String> testParameters = new HashMap<String, String>(context.getCurrentXmlTest().getAllParameters());
+        //for (String key : testParameters.keySet()) {
+        //	System.out.println("Test parameter: key=" + key + " value=" + testParameters.get(key));
+        //}
+        //
 		//application = new Application(ApplicationSourcesRepository.getChromeOptionsHeroku());
-		Application.get(ApplicationSourcesRepository.getChromeOptionsHeroku());
+		Application.get(ApplicationSourcesRepository.getChromeOptionsHeroku().update(testParameters));
 	}
 
 	@AfterClass
