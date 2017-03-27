@@ -6,11 +6,16 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.softserve.edu.Appl;
 import com.softserve.edu.regres.data.IUser;
 import com.softserve.edu.regres.tools.GeneralRegresException;
 
 public class LoginPage extends ATopPage {
+	//
+	public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 	//
 	private static final String REGISTER_ERROR = "Button Register not Found";
 	// public static final Logger logger =
@@ -215,18 +220,18 @@ public class LoginPage extends ATopPage {
 
 	private void setLoginData(IUser user) {
 		// private void setLoginData(String login, String password) {
-		// logger.debug("Start");
+		logger.debug("Start");
 		setLoginInputClear(user.getLogin());
-		// logger.trace("setLoginInputClear() Done, User Login = " +
-		// user.getLogin());
+		logger.trace("setLoginInputClear() Done, User Login = " +
+				user.getLogin());
 		setPasswordInputClear(user.getPassword());
-		// logger.trace("setPasswordInputClear() Done, User Password = " +
-		// user.getPassword());
+		logger.trace("setPasswordInputClear() Done, User Password = " +
+				user.getPassword());
 		// setLoginInputClear(login);
 		// setPasswordInputClear(password);
 		clickSignin();
-		// logger.trace("clickSignin() Done");
-		// logger.debug("Done");
+		logger.trace("clickSignin() Done");
+		logger.debug("Done");
 	}
 
 	public CommonPage successUserLogin(IUser user) {

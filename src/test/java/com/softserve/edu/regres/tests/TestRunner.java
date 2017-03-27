@@ -10,11 +10,25 @@ import org.testng.annotations.BeforeMethod;
 
 import com.softserve.edu.regres.apps.ApplicationSourcesRepository;
 import com.softserve.edu.regres.pages.Application;
+import com.softserve.edu.regres.tools.ScreenShot;
 
 public class TestRunner {
 	// Use if Application class not Singleton.
 	//protected Application application;
+	private boolean isTestComplete;
 	
+	protected boolean getIsTestComplete() {
+		return isTestComplete;
+	}
+	
+	protected void testStart() {
+		isTestComplete = false;
+	}
+
+	protected void testDone() {
+		isTestComplete = true;
+	}
+
 	@BeforeClass
 	public void beforeClass(ITestContext context) {
 		System.out.println("@BeforeClass");
@@ -43,12 +57,16 @@ public class TestRunner {
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("@BeforeMethod");
+		testStart();
 		//Application.get().load();
 	}
 
 	@AfterMethod
 	public void afterMethod() {
 		System.out.println("@AfterMethod");
+		if (!getIsTestComplete()) {
+			new ScreenShot().captureScreen(Application.get().getWebDriver());
+		}
 		Application.get().logout();
 	}
 

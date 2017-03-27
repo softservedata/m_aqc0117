@@ -5,6 +5,10 @@ import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.softserve.edu.Appl;
 
 public class LoginValidatorPage extends LoginPage {
 
@@ -32,6 +36,8 @@ public class LoginValidatorPage extends LoginPage {
 	
 	// Fields
 	
+	private static final Logger logger = LoggerFactory.getLogger(LoginValidatorPage.class);
+	//
 	private WebElement validator;
 
 	public LoginValidatorPage(WebDriver driver) {
@@ -44,12 +50,14 @@ public class LoginValidatorPage extends LoginPage {
 	// get Data
 
 	public WebElement getValidator() {
+		logger.debug("getValidator() Done");
 		return this.validator;
 	}
 
 	// Functional
 
 	public String getValidatorText() {
+		logger.debug("getValidatorText() Done");
 		return getValidator().getText();
 	}
 

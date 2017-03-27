@@ -1,9 +1,12 @@
 package com.softserve.edu.regres.tests;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.softserve.edu.Appl;
 import com.softserve.edu.regres.data.IUser;
 import com.softserve.edu.regres.data.UserRepository;
 import com.softserve.edu.regres.pages.Application;
@@ -13,6 +16,7 @@ import com.softserve.edu.regres.pages.ATopPage.ChangeLanguageFields;
 import com.softserve.edu.regres.pages.LoginValidatorPage.LoginValidatorPageL10n;
 
 public class InvalidLoginTest extends TestRunner {
+	private static final Logger logger = LoggerFactory.getLogger(Appl.class);
 
 	@DataProvider // (parallel = true) // Not parallel
 	public Object[][] invalidUser() {
@@ -25,6 +29,7 @@ public class InvalidLoginTest extends TestRunner {
 
 	@Test(dataProvider = "invalidUser")
 	public void checkInvalidLogin(IUser invalidUser, ChangeLanguageFields language) throws Exception {
+		logger.info("Begin");
 		// Precondition.
 		//
 		// Test steps.
@@ -46,6 +51,8 @@ public class InvalidLoginTest extends TestRunner {
 		//
 		// Return to previous state.
 		// Application.remove();
+		testDone();
+		logger.info("Done");
 	}
 
 	//@Test

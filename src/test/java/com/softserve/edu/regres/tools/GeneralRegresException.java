@@ -1,8 +1,15 @@
 package com.softserve.edu.regres.tools;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.softserve.edu.Appl;
+
 public class GeneralRegresException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	private static final String GENERAL_REGRES_EXCEPTION = "GeneralRegresException";
+	//
+	private static final Logger logger = LoggerFactory.getLogger(GeneralRegresException.class);
 
 	// Classic constructor with a message of error.
 	public GeneralRegresException(String message) {
@@ -16,7 +23,7 @@ public class GeneralRegresException extends RuntimeException {
     }
 
 	private void performLogging(String message) {
-		//LoggerWrapper.get().errorLog(GENERAL_REGRES_EXCEPTION + ": " + message);
+		logger.error(GENERAL_REGRES_EXCEPTION + ": " + message);
 	}
 
 }
