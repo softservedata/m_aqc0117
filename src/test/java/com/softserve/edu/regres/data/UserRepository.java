@@ -3,6 +3,7 @@ package com.softserve.edu.regres.data;
 import java.util.List;
 
 import com.softserve.edu.regres.tools.CSVUtils;
+import com.softserve.edu.regres.tools.DBUtils;
 import com.softserve.edu.regres.tools.ExcelUtils;
 
 public final class UserRepository {
@@ -76,8 +77,13 @@ public final class UserRepository {
 		return new UserUtils(filename, new ExcelUtils()).getAllUsersFromFile();
 	}
 
-//	public List<IUser> getNewUsersFromDB() {
-//		return new UserUtils("/", new DBUtils()).getAllUsers();
-//	}
+	public List<IUser> getUsersFromDB() {
+		return new UserUtils("select Firstname, Lastname, Email, Login, Password, Community from newusers;",
+				new DBUtils()).getAllUsersFromDB();
+	}
+
+	public List<IUser> getUsersFromDB(String sqlQuery) {
+		return new UserUtils(sqlQuery, new DBUtils()).getAllUsersFromDB();
+	}
 
 }

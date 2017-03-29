@@ -19,6 +19,10 @@ public final class UserUtils {
 		return getAllUsers(this.getClass().getResource(path).getPath().substring(1));
 	}
 
+	public List<IUser> getAllUsersFromDB() {
+		return getAllUsers(path);
+	}
+
 	public List<IUser> getAllUsers(String connection) {
 		List<IUser> users = new ArrayList<IUser>();
 		for (List<String> row : externalData.getAllCells(connection)) {

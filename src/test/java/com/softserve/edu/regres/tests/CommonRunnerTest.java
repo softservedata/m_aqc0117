@@ -16,7 +16,8 @@ public class CommonRunnerTest extends TestRunner {
 	@DataProvider // (parallel = true) // Not parallel
 	public Object[][] validUsers() {
 		//return ListUtils.toMultiArray(UserRepository.get().getUsersFromCsvFile("/users.csv"));
-		return ListUtils.toMultiArray(UserRepository.get().getUsersFromExcelFile("/users.xlsx"));
+		//return ListUtils.toMultiArray(UserRepository.get().getUsersFromExcelFile("/users.xlsx"));
+		return ListUtils.toMultiArray(UserRepository.get().getUsersFromDB("select Firstname, Lastname, Email, Login, Password, Community from newusers;"));
 	}
 
 	@Test(dataProvider = "validUsers")
