@@ -54,7 +54,7 @@ public class InvalidLoginTest extends TestRunner {
 		// Return to previous state.
 		// Application.remove();
 		testDone();
-		ReporterWrapper.get().takeScreen(Application.get().getWebDriver());
+		ReporterWrapper.get().takeScreenShot();
 		ReporterWrapper.get().info("Done checkInvalidLogin()");
 		logger.info("Done");
 	}
