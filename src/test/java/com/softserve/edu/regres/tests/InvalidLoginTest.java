@@ -14,6 +14,7 @@ import com.softserve.edu.regres.pages.LoginPage;
 import com.softserve.edu.regres.pages.LoginValidatorPage;
 import com.softserve.edu.regres.pages.ATopPage.ChangeLanguageFields;
 import com.softserve.edu.regres.pages.LoginValidatorPage.LoginValidatorPageL10n;
+import com.softserve.edu.regres.tools.ReporterWrapper;
 
 public class InvalidLoginTest extends TestRunner {
 	private static final Logger logger = LoggerFactory.getLogger(Appl.class);
@@ -30,6 +31,7 @@ public class InvalidLoginTest extends TestRunner {
 	@Test(dataProvider = "invalidUser")
 	public void checkInvalidLogin(IUser invalidUser, ChangeLanguageFields language) throws Exception {
 		logger.info("Begin");
+		ReporterWrapper.get().info("Begin checkInvalidLogin()");
 		// Precondition.
 		//
 		// Test steps.
@@ -52,6 +54,8 @@ public class InvalidLoginTest extends TestRunner {
 		// Return to previous state.
 		// Application.remove();
 		testDone();
+		ReporterWrapper.get().takeScreen(Application.get().getWebDriver());
+		ReporterWrapper.get().info("Done checkInvalidLogin()");
 		logger.info("Done");
 	}
 
